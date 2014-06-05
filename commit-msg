@@ -1,0 +1,18 @@
+#!/usr/bin/env python2
+from git_hooks import *
+import sys, re
+
+MESSAGE_FILE = sys.argv[1]
+
+@git_hook
+def verify_commit_message(status):
+    message = open(MESSAGE_FILE).read().strip()
+    if len(message) == 0:
+        return status.fails('Empty commit messages are not permitted')
+
+    if re.search(r'\b(\w+-\d{1,5})\b', message) == None and re.search('master', message) == None:
+        print('Commit message must contain a story or task number in the following format: XX-12345')
+        return status.fails('Invalid commit message "{0}"'.format(message))
+
+if __name__ == '__main__':
+    run_hooks([hook for hook in locals().values() if is_hook(hook)])
