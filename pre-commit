@@ -1,0 +1,30 @@
+#!/usr/bin/env python2
+# from git_hooks import *
+# from utils import *
+# import time
+
+# @git_hook
+# def validate_message(status):
+    
+#     # depth = 1
+#     # for r in revList:
+#     # log = git(['rev-list', '--format=%B', '--max-count=1', r]) # %B revision number and message
+#     # message = log.strip().split('\n')[1]
+#     # if doesChangeNeedStoryNum(r):
+#     #      if not isCommitMessageValid(message, r, depth):
+#     #         sys.exit(1)
+#     # depth = depth + 1
+
+
+# @git_hook
+# def hello_world(status):
+#     print('hello world!')
+#     print('second line of output....')
+
+# @git_hook
+# def goodbye_world(status):
+#     status.fails('because I can')
+#     print('goodbye world!')
+
+# if __name__ == '__main__':
+#     GitHooks([hook for hook in locals().values() if is_hook(hook)])
