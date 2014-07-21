@@ -1,5 +1,6 @@
 from __future__ import print_function
 from cStringIO import StringIO
+from datetime import datetime
 import os, sys
 
 #---------------------------------
@@ -100,6 +101,11 @@ class Status:
         """Set a failing status, message is required"""
         self.status  = False
         self.message = message
+
+    def log(self, message):
+        """Output a formated log message"""
+        timestamp = datetime.now().strftime('%Y-%m-%d %I:%M:%S %p')
+        print('{0}: {1}'.format(timestamp, message))
 
 class Hook:
 
