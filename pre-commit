@@ -94,7 +94,7 @@ def coding_standards(status):
             file_contents = execute(('git', 'cat-file', 'blob', script_id), stdout=staged_copy, stderr=PIPE)
 
     # Sniff the entire working directory
-    code_sniff = execute((cs_binary, '--standard={}'.format(cs_standard), work_dir), stdout=PIPE, stderr=PIPE)
+    code_sniff = execute((cs_binary, '--standard={}'.format(cs_standard), '-n', work_dir), stdout=PIPE, stderr=PIPE)
     print(code_sniff.stdout.read(), file=sys.stdout)
     print(code_sniff.stderr.read(), file=sys.stderr)
     if code_sniff.returncode != 0:
